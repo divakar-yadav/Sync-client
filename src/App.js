@@ -11,6 +11,7 @@ import wifi from './assets/wifi.png';
 import nowifi from './assets/no-wifi.png'
 import Toggle from './components/Toggle/Toggle';
 import chat from './assets/chat.png'
+import ImportProject from "./views/ImportProject/ImportProject";
 
 
 const App = () => {
@@ -36,10 +37,10 @@ const App = () => {
       case "homepage":
         // code block
         return <HomePage />;
-        break;
       case "projects":
         return <ChatRoom/>
-        break;
+      case "import-project":
+        return <ImportProject/>
       case "requests":
         // code block
         break;
@@ -86,6 +87,12 @@ const App = () => {
                             </div>
                         </li>
                         <li>
+                            <div className='sidenav_item' onClick={()=>setTab('import-project')}>
+                                <img className='item_icon' src={setting}/>
+                                <div className='redirect'>Import Project</div>
+                            </div>
+                        </li>
+                        <li>
                             <div className='sidenav_item' onClick={()=>setTab('projects')}>
                                 <img className='item_icon' src={chat}/>
                                 <div className='redirect'>Chat</div>
@@ -101,12 +108,6 @@ const App = () => {
                             <div className='sidenav_item' onClick={()=>setTab('projects')}>
                                 <img className='item_icon' src={contribution}/>
                                 <div className='redirect'>Approved</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div className='sidenav_item' onClick={()=>setTab('projects')}>
-                                <img className='item_icon' src={setting}/>
-                                <div className='redirect'>Setting</div>
                             </div>
                         </li>
                         <li>
