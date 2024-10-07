@@ -119,3 +119,31 @@ app.on('activate', () => {
         createWindow();
     }
 });
+app.on('web-contents-created', (event, contents) => {
+    contents.session.webRequest.onBeforeSendHeaders((details, callback) => {
+      details.requestHeaders['Origin'] = null;  // Remove the Origin header
+      callback({ cancel: false, requestHeaders: details.requestHeaders });
+    });
+  });
+
+
+  const { net } = require('electron');
+  
+  ipcMain.on('fetch-project-data', (event, hashCode) => {
+    const request = net.request(`http://127.0.0.1:5000/project-by-hash/${hashCode}`);
+    
+    request.on('response', (response) => {
+      let responseBody = '';
+      
+      response.on('data', (chunk) => {
+        responseBody += chunk.toString();
+      });
+      
+      response.on('end', () => {
+        event.reply('project-data-response', responseBody);
+      });
+    });
+  
+    request.end();
+  });
+  

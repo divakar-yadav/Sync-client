@@ -8,6 +8,8 @@ exports.default = async function notarizing(context) {
     }
 
     const appName = context.packager.appInfo.productFilename;
+    console.log(context,"---context---")
+    console.log(appOutDir,"---appOutDir---")
 
     await notarize({
         appBundleId: 'com.uwm.sync', // Use your app's bundle ID
