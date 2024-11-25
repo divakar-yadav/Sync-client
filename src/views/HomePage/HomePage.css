@@ -31,7 +31,9 @@
   display: flex;
   padding: 10px;
   font-size: 13px;
+  font-weight: 900;
   color: #245bc5;
+  border-bottom: 1px solid lightgray;
 }
 .redirect {
   margin-left: 10px;

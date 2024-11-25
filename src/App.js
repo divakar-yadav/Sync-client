@@ -2,16 +2,18 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import HomePage from "./views/HomePage/HomePage";
 import ChatRoom from "./views/ChatRoom/ChatRoom";
-import contribution from './assets/contribution.png';
+import contribution from './assets/database.png';
 import setting from './assets/setting.png';
 import live from './assets/live.png';
 import feedback from './assets/feedback.png';
 import add from './assets/add.png';
+import home from './assets/home_01.png';
 import wifi from './assets/wifi.png';
 import nowifi from './assets/no-wifi.png'
 import Toggle from './components/Toggle/Toggle';
 import chat from './assets/chat.png'
 import ImportProject from "./views/ImportProject/ImportProject";
+import SyntheticDataGenerator from "./views/SyntheticDataGenerator/SyntheticDataGenerator";
 
 
 const App = () => {
@@ -41,7 +43,8 @@ const App = () => {
         return <ChatRoom/>
       case "import-project":
         return <ImportProject/>
-      case "requests":
+      case "synthetic-data-generator":
+        return <SyntheticDataGenerator/>
         // code block
         break;
       default:
@@ -82,7 +85,7 @@ const App = () => {
                         </li> */}
                         <li>
                         <div className='sidenav_item' onClick={()=>setTab('homepage')}>
-                        <img className='item_icon' src={contribution}/>
+                        <img className='item_icon' src={home}/>
                                 <div className='redirect'>Home</div>
                             </div>
                         </li>
@@ -99,12 +102,12 @@ const App = () => {
                             </div>
                         </li>
                         <li>
-                            <div className='sidenav_item' onClick={()=>setTab('projects')}>
-                                <img className='item_icon' src={live}/>
-                                <div className='redirect'>Requests</div>
+                            <div className='sidenav_item' onClick={()=>setTab('synthetic-data-generator')}>
+                            <img className='item_icon' src={contribution}/>
+                            <div className='redirect'>Synthetic Data</div>
                             </div>
                         </li>
-                        <li>
+                        {/* <li>
                             <div className='sidenav_item' onClick={()=>setTab('projects')}>
                                 <img className='item_icon' src={contribution}/>
                                 <div className='redirect'>Approved</div>
@@ -115,8 +118,8 @@ const App = () => {
                                 <img className='item_icon' src={contribution}/>
                                 <div className='redirect'>Profile</div>
                             </div>
-                        </li>
-                        <li>
+                        </li> */}
+                        {/* <li>
                             <div className='sidenav_item'>
                                 <img className='item_icon' src={contribution}/>
                                 <div className='redirect'>Your Contributions</div>
@@ -157,7 +160,7 @@ const App = () => {
                                 <img className='item_icon' src={feedback}/>
                                 <div className='redirect'>Send Feedback</div>
                             </div>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
         </div>
